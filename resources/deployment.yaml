@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-killc-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8s-killc
+      annotations:
+        killc/signature: |
+          -----BEGIN PGP SIGNATURE-----
+          Version: GnuPG v2
+
+          iQEcBAEBCAAGBQJYmSuiAAoJEBT2P74xJrtnfLYH/jS1EYQO7MxWm827dfS5wJdc
+          BmpLZxZApESVtBp0ZV9ITtAWqFbYQaW6ntg+6OSJ9rkyHgvw8k7HwbwTkXSeOPrH
+          zUFyYcG88XgrAQ6m5unS6hgWFYLHyqrPBrlp9V3fTYHrm4wkuyOvWc5NMlyJ6xct
+          FgOmCFXwTBwaJajhggFLpr3dHcbIb4LuTi3AeEnJlH170PvToWnwtY5XbhG9z0z4
+          6IfsqT06pPL6sbwojQ/I7MApdeAZy67cSsz2bxeGI7d6jRCds9dyHB0eATIq0SQx
+          UBt7j7dtHGg0PlBDzG/ob0JZ9NKQqk+BNXIrNnrFWBpvntO2izuqKyqocJNu1G8=
+          =Jwd5
+          -----END PGP SIGNATURE-----
+    spec:
+      containers:
+      - name: k8s-killc
+        image: dragonpanic/k8s-killc:0.0.1
+        ports:
+        - containerPort: 80

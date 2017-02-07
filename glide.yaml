@@ -1,0 +1,5 @@
+package: .
+import:
+- package: k8s.io/client-go
+  version: v1.5.0
+- package: golang.org/x/crypto/openpgp

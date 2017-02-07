@@ -1,0 +1,5 @@
+#!/bin/bash -e
+./build
+docker build -t dragonpanic/k8s-killc:0.0.1 .
+#docker push kelseyhightower/vault-controller:0.0.1
+rm k8s-killc
